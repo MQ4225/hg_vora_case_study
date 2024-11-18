@@ -4,10 +4,12 @@ from etl.transform_data import transform_data
 from etl.analysis import analyze_data
 
 
-# 90 Day Treasury Rate
+# Variable 1: 90 Day Treasury Rate
 series_1 = 'IR3TIB01USM156N'
-# Unemployment Rate
+
+# Variable 2: Unemployment Rate
 series_2 = 'unrate'
+
 series_list =  [series_1, series_2]
 data_type = 'latest'
 
