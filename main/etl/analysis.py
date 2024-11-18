@@ -35,7 +35,7 @@ def analyze_data():
     alpha = 0.05
 
     if p_value < alpha:
-        sig_checl = "There is a significant difference between the two groups."
+        sig_check = "There is a significant difference between the two groups."
     else:
         sig_check = "There is no significant difference between the two groups."
 
@@ -48,6 +48,7 @@ def analyze_data():
         'median_2': median_2,
         'mode_2': mode_2,
         't-stat': t_stat,
+        'pp-value': pp_value,
         'p-value': p_value,
         'correlation': correlation,
         'significance': sig_check
