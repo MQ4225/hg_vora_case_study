@@ -11,3 +11,6 @@ repository for hg vora case study
 1. under the main folder go to the main.py script 
 2. At the moment I have included the variables to use to pull the information from FRED but this is quite flexible and can be used to download any two economic indicators you would like to analyze
 3. hit run and it will run the code automatically 
+
+# Presentation
+1. Powerpoint and Dashboard are located in the /dashboard folder
