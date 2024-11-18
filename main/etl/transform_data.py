@@ -11,6 +11,7 @@ def transform_data():
     files = os.listdir(download_path)
 
     # create empty dataframe
+    # SQL: CREATE TABLE merged_df (column_names)
     merged_df = pd.DataFrame()
 
     # goes through files and merges based of date only joining where dates exist for both data sets
@@ -20,9 +21,11 @@ def transform_data():
         if merged_df.empty:
             merged_df = df
         else:
+            # SQL: SELECT (insert columns) FROM merged_df JOIN df on merged_df.date = df.date
             merged_df = pd.merge(merged_df, df, on='date', how='inner')
 
     # clean up nan values
+    # SQL: SELECT ifnull(column_name, '0') as column_name from merged_df
     merged_df = merged_df.fillna(0)
 
     # save new data set to downloaded_data folder
