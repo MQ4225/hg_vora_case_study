@@ -1,0 +1,4 @@
+# does not commit any of the directories / files below
+
+.venv
+main\test
