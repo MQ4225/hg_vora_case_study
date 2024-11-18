@@ -2,7 +2,7 @@ from fredapi import Fred
 import os
 import pandas as pd
 
-def fred_data_extract(series, data_type):
+def fred_data_extract(series: str, data_type: str):
 
     # sets up connection to FRED and ALFRED API
     api_key = 'e2f2d8ab8888632704fef7441a95d3c2'
@@ -44,14 +44,5 @@ def fred_data_extract(series, data_type):
         vintage_data_df = vintage_data_df.reset_index()
         vintage_data_df.columns = ['date', series]
         vintage_data_df.to_csv(os.path.join(download_path, f'{series}_vintage_dates.csv'), index=False)
-
-# series = 'IR3TIB01USM156N'
-# data_type = 'latest'
-
-series = 'unrate'
-data_type = 'latest'
-
-fred_data_extract(series=series, data_type=data_type)
-
 
 

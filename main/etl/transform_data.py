@@ -1,29 +1,32 @@
 import os
 import pandas as pd
 
-# check downloaded_data folder to make sure there are two files
-downloaded_files_path = os.path.join(os.getcwd(),'main', 'downloaded_data')
 
-# produce the files in downloaded_data folder
-files = os.listdir(downloaded_files_path)
+def transform_data():
 
-# create empty dataframe
-merged_df = pd.DataFrame()
+    # check downloaded_data folder to make sure there are two files
+    download_path = os.path.join(os.getcwd(),'main', 'downloaded_data')
 
-# goes through files and merges based of date only joining where dates exist for both data sets
-for file in files: 
-    df = pd.read_csv(os.path.join(downloaded_files_path, file))
+    # produce the files in downloaded_data folder
+    files = os.listdir(download_path)
 
-    if merged_df.empty:
-        merged_df = df
-    else:
-        merged_df = pd.merge(merged_df, df, on='date', how='inner')
+    # create empty dataframe
+    merged_df = pd.DataFrame()
 
-# clean up nan values
-merged_df = merged_df.fillna(0)
+    # goes through files and merges based of date only joining where dates exist for both data sets
+    for file in files: 
+        df = pd.read_csv(os.path.join(download_path, file))
 
-# save new data set to downloaded_data folder
-merged_df.to_csv(os.path.join(downloaded_files_path, f'merged_df.csv'), index=False)
+        if merged_df.empty:
+            merged_df = df
+        else:
+            merged_df = pd.merge(merged_df, df, on='date', how='inner')
+
+    # clean up nan values
+    merged_df = merged_df.fillna(0)
+
+    # save new data set to downloaded_data folder
+    merged_df.to_csv(os.path.join(download_path, f'merged_df.csv'), index=False)
 
 
 
