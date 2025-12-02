@@ -10,7 +10,10 @@ series_1 = 'IR3TIB01USM156N'
 # Variable 2: Unemployment Rate
 series_2 = 'unrate'
 
-series_list =  [series_1, series_2]
+# Variables 3: GDP 
+series_3 = 'GDP'
+
+series_list =  [series_1, series_2, series_3]
 data_type = 'latest'
 
 def analysis_tool(series_list: list, data_type: str):
